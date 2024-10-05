@@ -1,0 +1,17 @@
+name: Hello
+on: push
+# 配列で記述すれば複数のイベントを指定できる
+# on: [push, pull_request]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, world"
+      # YAMLの複数行記法
+      # - run: |
+      #     git log -1
+      #     tree -a .
+      - uses: actions/checkout@v4
+        # withキーを使えば、入力パラメータも指定できる
+        # with:
+        #   ref: main
